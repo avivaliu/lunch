@@ -1,10 +1,11 @@
 'use strict'
-var restaurant = require('../data/restaurants.json');
-var underscore = require('underscore');
-
-function lunchDraw(){
-  var random = (Math.floor(Math.random() * restaurant.length));
-  alert(restaurant[random].name);
+//var restaurant = require('../data/restaurants.json');
+//var underscore = require('underscore');
+function lunchDraw(restaurant){
+    return function(){
+      var random = (Math.floor(Math.random() * restaurant.length));
+      alert(restaurant[random].name);
+    }
 }
 
 function showForm(){
@@ -12,8 +13,10 @@ function showForm(){
 }
   
 function init(){
-  $('#lunch_draw').click(lunchDraw);
-  $('#add_restaurant').click(showForm);
+  $.getJSON("/data/restaurants.json", function(data){
+      $('#lunch_draw').click(lunchDraw(data));
+      $('#add_restaurant').click(showForm);
+  });
 }
 
 $(document).ready(init);
