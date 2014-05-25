@@ -63,9 +63,29 @@
                 </a>
             </div>
         </div>
+        <div class="col-lg-3">
+          <div class="btn-group-vertical">
+            <button type="button" class="btn btn-primary btn-lg" id="lunch_draw">
+              <span class="glyphicon glyphicon-star"></span> I feel lucky
+            </button>
+            <button type="button" class="btn btn-default btn-lg" id="add_restaurant">
+              <span class="glyphicon glyphicon-star"></span> Add a restaurant
+            </button>
+          </div>
+          <form role="form" action="/update" method="post" id="form_add_rest" class="hidden">
+            <div class="form-group">
+              <label for="restaurant_name">Restaurant Name</label>
+              <input type="name" name="name" class="form-control" id="restaurant_name" placeholder="Enter restaurant name">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputFile">Restaurant photography</label>
+              <input type="file" name="picture" id="restimage_upload">
+              <p class="help-block">Upload a picture for your prefered restaurant</p>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>   
     </div>
-    <button type="button" class="btn btn-default btn-lg" id="lunch_draw">
-      <span class="glyphicon glyphicon-star"></span> I feel lucky
-    </button>      
+
   </body>
 </html>
