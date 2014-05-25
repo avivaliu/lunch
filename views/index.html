@@ -11,7 +11,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="js/bundle.js"></script>
+    <script src="js/main.js"></script>
   </head>
   <body>
     <div class="row">
@@ -31,19 +31,19 @@
                 
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="image/canteen01.jpg">
+                        <img src="image/canteen01.jpg" />
                         <div class="carousel-caption">
                             <h3>canteen01</h3>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="image/canteen02.jpg">
+                        <img src="image/canteen02.jpg" />
                         <div class="carousel-caption">
                             <h3>canteen02</h3>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="image/canteen03.jpg">
+                        <img src="image/canteen03.jpg" />
                         <div class="carousel-caption">
                             <h3>canteen03</h3>
                         </div>
@@ -67,7 +67,7 @@
               <span class="glyphicon glyphicon-plus"></span> Add a restaurant
             </button>
           </div>
-          <form role="form" action="/update" method="post" id="form_add_rest" class="hidden">
+          <form role="form" action="/update" method="post" id="form_add_rest" class="hidden" enctype="multipart/form-data">
             <div class="form-group">
               <label for="restaurant_name">Restaurant Name</label>
               <input type="name" name="name" class="form-control" id="restaurant_name" placeholder="Enter restaurant name">
@@ -81,6 +81,5 @@
           </form>
         </div>   
     </div>
-
   </body>
 </html>
