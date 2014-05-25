@@ -1,5 +1,5 @@
 var fs = require('fs');
-var filePath = './public/data/restaurants2.json';
+var filePath = './public/data/restaurants.json';
 
 
 function save(canteens) {
