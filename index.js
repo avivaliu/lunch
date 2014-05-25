@@ -22,18 +22,18 @@ function handleUpdate(req, res) {
     var busboy = new Busboy({ headers: req.headers });
     var newCanteen = {};
     busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
-        //new canteen name from val
-        newCanteen['name'] = val;
+        //new canteen name and picture name from val
+        newCanteen.name = val;
     });
     busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
         var localFilePath = __dirname + '/public/data/upload/' + filename;
         file.pipe(fs.createWriteStream(localFilePath));
-        newCanteen['picture'] = filename;
+        newCanteen.picture = filename;
     });    
     busboy.on('finish', function() {
         canteens.push(newCanteen);
         storage.save(canteens);
-        console.log('Done parsing form!');
+        //console.log('Done parsing form!');
         res.writeHead(303, { Connection: 'close', Location: '/' });
         res.end();
     });
