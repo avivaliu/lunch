@@ -1,7 +1,1 @@
-[{
-  "name": "IKEA"
-},{
-  "name": "茶室"
-},{
-  "name": "垦丁茶餐厅"
-}]
+[{"name":"IKEA","picture":"sample01.jpg"},{"name":"茶室1","picture":"sample02.jpg"},{"name":"垦丁茶餐厅","picture":"sample03.jpg"}]
