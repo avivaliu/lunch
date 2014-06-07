@@ -13,6 +13,6 @@
     "ejs": "^1.0.0",
     "express": "^4.3.0",
     "busboy": "*",
-    "underscore": "^1.6.0"
+    "underscore": "~1.6.0"
   }
 }
