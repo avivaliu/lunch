@@ -27,4 +27,18 @@ function handleUpdate(req, res) {
     req.pipe(busboy);
 }
 
-exports.handle = handleUpdate;
+function handleDelete(req, res){
+    var deleteTarget = req.query.name;
+    for (i = 0;i < canteens.length; i++){
+        if (canteens[i].name == deleteTarget){
+            canteens.splice(i, 1);
+            break;
+        }
+    }
+    storage.save(canteens);
+    res.writeHead(303, { Connection: 'close', Location: '/' });
+    res.end();
+}
+
+exports.handleUpdate = handleUpdate;
+exports.handleDelete = handleDelete;
