@@ -36,7 +36,7 @@ function handleDelete(req, res){
         }
     }
     storage.save(canteens);
-    res.writeHead(303, { Connection: 'close', Location: '/' });
+    res.writeHead(303, { Connection: 'close', Location: '/list' });
     res.end();
 }
 
