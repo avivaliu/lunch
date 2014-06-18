@@ -10,16 +10,28 @@ function handleUpdate(req, res) {
     var newCanteen = {};
     busboy.on('field', function(fieldname, val, fieldnameTruncated, valTruncated) {
         //new canteen name and picture name from val
-        newCanteen.name = val;
+        if (val == '')  //no canteen name entered
+            newCanteen.name = null;
+        else
+            newCanteen.name = val;
     });
     busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-        var localFilePath = __dirname + '/public/data/upload/' + filename;
-        file.pipe(fs.createWriteStream(localFilePath));
-        newCanteen.picture = filename;
+        if (filename == ''){  //no file upload
+            newCanteen.picture = null;
+            res.writeHead(303, { Connection: 'close', Location: '/' });
+            res.end();
+        }
+        else {
+            var localFilePath = __dirname + '/public/data/upload/' + filename;
+            file.pipe(fs.createWriteStream(localFilePath));
+            newCanteen.picture = filename;
+        }
     });    
     busboy.on('finish', function() {
-        canteens.push(newCanteen);
-        storage.save(canteens);
+        if (newCanteen.name != null){
+            canteens.push(newCanteen);
+            storage.save(canteens);
+        }
         //console.log('Done parsing form!');
         res.writeHead(303, { Connection: 'close', Location: '/' });
         res.end();
